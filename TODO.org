@@ -1,0 +1,8 @@
+* Todo List
+
+** TODO Figure out how to separate storage from logic
+- remove things like `ets_table_name` from state
+  - move to storage backend
+- open_table() call in init
+  - generically, init storage backend
+- checking rate
