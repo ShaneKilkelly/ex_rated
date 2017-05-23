@@ -1,8 +1,30 @@
 * Todo List
 
-** TODO Figure out how to separate storage from logic
+** Tasks
+
+*** TODO Figure out how to separate storage from logic
 - remove things like `ets_table_name` from state
   - move to storage backend
 - open_table() call in init
   - generically, init storage backend
 - checking rate
+
+** Thoughts
+
+Actually, once the backend is moved to another process, there's no reason for the
+main ExRated api to be a process/application, as it caries no state.
+
+So, the ExRated module can just be logic which points to the process which actually
+manages the state.
+
+
+
+** API Points
+
+- init
+- count_hit
+  - bucket_exists?
+  - increment_bucket
+- inspect_bucket
+- delete_bucket
+- prune_expired_buckets
